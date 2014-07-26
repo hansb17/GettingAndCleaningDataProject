@@ -22,6 +22,7 @@ To generate the tidy dataset an R script is used. The r script called run_analys
 ## run_analysis.R
 
 To function properly the program expects to find the following files within the directory structure below:
+
 ‘’’
 +——UCI HAR Dataset
    +——test
