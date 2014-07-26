@@ -44,6 +44,15 @@ The R script load the above files and generate two data frames called **test_dat
 ###Dataframe: test_dataset
 
 The test_dataset dataframe is built by combining by columns - using the cbind() function - the subject_test, the y_test and the X_test data generating a dataframe with 2947 rows and 68 columns. Notes:
-* the original X_test contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features
-* column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables
+* the original X_test contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features description
+* column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables (i.e. features)
 * a column has been added to the end, leading effectively to a data frame with 69 columns, to identify that the observations belong to the test dataset
+* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject 
+
+###Dataframe: train_dataset
+
+Following the same approach done before for the test_dataset, the train_dataset dataframe is built by combining by columns - using the cbind() function - the subject_train, the y_train and the X_train data generating a dataframe with 2947 rows and 68 columns. Notes:
+* the original X_train contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features description
+* column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables (i.e. features)
+* a column has been added to the end, leading effectively to a data frame with 69 columns, to identify that the observations belong to the train dataset
+* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject 
