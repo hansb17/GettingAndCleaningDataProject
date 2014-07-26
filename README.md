@@ -23,7 +23,7 @@ To generate the tidy dataset an R script is used. The r script called run_analys
 
 To function properly the program expects to find the following files within the directory structure below:
 
-‘’’
+```
 +——UCI HAR Dataset
    +——test
       +——subject_test.txt
@@ -36,7 +36,7 @@ To function properly the program expects to find the following files within the 
    +——activity_labels.txt
    +——features.txt
    +——run_analysis.R 
-‘’’
+```
 
 the R script run_analysis.R needs to be stored within the UCI HAR Dataset folder. 
 
