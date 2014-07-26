@@ -46,13 +46,21 @@ The R script load the above files and generate two data frames called **test_dat
 The test_dataset dataframe is built by combining by columns - using the cbind() function - the subject_test, the y_test and the X_test data generating a dataframe with 2947 rows and 68 columns. Notes:
 * the original X_test contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features description
 * column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables (i.e. features)
+* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject, the remaining 66 columns contain the observed variables 
 * a column has been added to the end, leading effectively to a data frame with 69 columns, to identify that the observations belong to the test dataset
-* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject 
 
 ###Dataframe: train_dataset
 
-Following the same approach done before for the test_dataset, the train_dataset dataframe is built by combining by columns - using the cbind() function - the subject_train, the y_train and the X_train data generating a dataframe with 2947 rows and 68 columns. Notes:
+Following the same approach done before for the test_dataset, the train_dataset dataframe is built by combining by columns - using the cbind() function - the subject_train, the y_train and the X_train data generating a dataframe with 7352 rows and 68 columns. Notes:
 * the original X_train contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features description
 * column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables (i.e. features)
+* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject, the remaining 66 columns contain the observed variables 
 * a column has been added to the end, leading effectively to a data frame with 69 columns, to identify that the observations belong to the train dataset
-* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject 
+
+###Combining the test_dataset and the train_dataset
+
+Before computing the average value of all the variables in scope grouped by subject and activity the two dataframes teat_dataset and train_dataset are combined together  - using the rbind() function - to generate a unique dataframe called train_and_test_dataset with 10299 rows and 69 columns. Notes:
+* the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject, the remaining 66 columns contain the observed variables and the last column identifies if the observation belongs to the test dataset or the train dataset
+* since the second column contains the activity ID, in order to describe the activity done by the subject the ID is translated in the activity description by matching the ID number with the appropriate activity - use of the the activity_labels translation dataframe and the factor function - leading to the dataframe containing all the data required to generate the tidy dataset 
+
+###Generation of the tidy dataset 
