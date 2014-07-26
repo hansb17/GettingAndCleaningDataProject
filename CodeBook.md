@@ -37,3 +37,13 @@ Below a quick description of the content of each file and the dimensions of the 
 * **X_train.txt**: observations of all the variables measured for each activity done by each subject constituting the training set (dimensions: 7352*561)
 * **y_train.txt**: training labels (dimensions: 7352*1)
 
+## R script: run_analysis.R
+
+The R script load the above files and generate two data frames called **test_dataset** and  **train_dataset**. Below a summary of the activities done by the R script, details can be found in the R script itself by looking at the comments.
+
+###Dataframe: test_dataset
+
+The test_dataset dataframe is built by combining by columns - using the cbind() function - the subject_test, the y_test and the X_test data generating a dataframe with 2947 rows and 68 columns. Notes:
+* the original X_test contains 561 columns but since we are interested only in the variables (i.e columns) containing only mean and std observations the columns have been filtered appropriately by using the grep() function applied to the features
+* column names (i.e. variables measured) have been named appropriately used the same name convention used by the original dataset to identify the variables
+* a column has been added to the end, leading effectively to a data frame with 69 columns, to identify that the observations belong to the test dataset
