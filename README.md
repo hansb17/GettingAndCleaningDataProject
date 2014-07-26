@@ -23,13 +23,19 @@ To generate the tidy dataset an R script is used. The r script called run_analys
 
 To function properly the program expects to find the following files within the directory structure below:
 
-  UCI HAR Dataset---------------test---------subject_test.txt
-     |-activity_labels.txt  |            |---X_test.txt
-     |-features.txt         |             ---y_test.txt
-     |                      |
-     |                       ---train--------subject_train.txt
-      -run_analysis.R                    |---X_train.txt
-                                          ---y_train.txt
++——UCI HAR Dataset
+   +——test
+      +——subject_test.txt
+      +——X_test.txt
+      +——Y_test.txt
+   +——train
+      +——subject_train.txt
+      +——X_train.txt
+      +——Y_train.txt  
+   +——activity_labels.txt
+   +——features.txt
+   +——run_analysis.R 
+
 
 the R script run_analysis.R needs to be stored within the UCI HAR Dataset folder. 
 
@@ -41,4 +47,4 @@ To generate the tidy data set the script will:
 * will aggregate the data in a way to have the AVERAGE of all required variables computed
 * will store the tidy dataset as a comma separated values CSV file in the current folder with the name tidy_dataset.csv
 
-The tidy dataset is formed by 180 observations and 68 variables has appropriate labels describing the column variables and the activity done by each subject (observations)
+The tidy data set is formed by 180 observations and 68 variables has appropriate labels describing the column variables and the activity done by each subject (observations).
