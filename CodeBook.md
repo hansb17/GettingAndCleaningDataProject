@@ -59,8 +59,21 @@ Following the same approach done before for the test_dataset, the train_dataset 
 
 ###Combining the test_dataset and the train_dataset
 
-Before computing the average value of all the variables in scope grouped by subject and activity the two dataframes teat_dataset and train_dataset are combined together  - using the rbind() function - to generate a unique dataframe called train_and_test_dataset with 10299 rows and 69 columns. Notes:
+Before computing the average value of all the variables in scope grouped by subject and activity the two dataframes teat_dataset and train_dataset are combined together  - using the rbind() function - to generate a unique dataframe called **train_and_test_dataset** with 10299 rows and 69 columns. Notes:
 * the first column of the dataframe contains the subject ID who performed the activity the second column contains the activity ID performed by the subject, the remaining 66 columns contain the observed variables and the last column identifies if the observation belongs to the test dataset or the train dataset
-* since the second column contains the activity ID, in order to describe the activity done by the subject the ID is translated in the activity description by matching the ID number with the appropriate activity - use of the the activity_labels translation dataframe and the factor function - leading to the dataframe containing all the data required to generate the tidy dataset 
+* since the second column contains the activity ID, in order to describe the activity done by the subject the ID is translated in the activity description by matching the ID number with the appropriate activity - use of the the activity_labels translation dataframe and the factor() function - leading to the dataframe containing all the data required to generate the tidy dataset 
 
 ###Generation of the tidy dataset 
+
+To generate the tidy dataset the aggregate() function is applied to the train_and_test_dataset dataframe generating the **tidy_dataset** dataframe. Notes:
+* the aggregate function use the first two columns containing the subject ID and the activity label respectively as grouping factors
+* since the average of the observation is required the aggregate function is using the **mean** function as the function to compute the summary statistics
+* the last column of the dataframe identifying if the observation belongs to the test or to the train dataset is not considered in the aggregation since it is required to have the average of all observations no matter the dataset they belong to 
+* the tidy_dataset dataframe is ordered by subject and activity
+
+
+###Generating the tidy dataset file
+
+To generate the tidy dataset file the write.table() function is applied to the tidy_dataset dataframe. Notes:
+* to generate a comma separated values file the “,” separator is defined
+* row names are excluded
